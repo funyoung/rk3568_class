@@ -8,13 +8,13 @@ static int array_size;
 static char str1[10] = {0};
 
 module_param(a, int, S_IRUGO);
-MODULE_PARAM_DESC(a, "e.g: a=1");
+MODULE_PARM_DESC(a,"e.g: a=1");
 
 module_param_array(array, int, &array_size, S_IRUGO);
-MODULE_PARAM_DESC(array, "e.g: array=1,2,3");
+MODULE_PARM_DESC(array,"e.g: array=1,2,3");
 
-module_param_string(str, str1, sizeof(strl1), S_IRUGO);
-MODULE_PARAM_DESC("e.g: str=hello");
+module_param_string(str, str1, sizeof(str1), S_IRUGO);
+MODULE_PARM_DESC(str1,"e.g: str=hello");
 
 static int moduleparam_init(void)
 {
