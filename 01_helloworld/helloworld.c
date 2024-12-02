@@ -1,22 +1,21 @@
 #include <linux/module.h>
-#include <linux/ini.h>
+#include <linux/init.h>
 
 
-static int helloworld_init()
+static int helloworld_init(void)
 {
-    printk("helloworld!\n")
+    printk("helloworld!\n");
     return 0;
 }
 
-static void helloworld_exit()
+static void helloworld_exit(void)
 {
-    printk("helloworld bye!\n")
-    return 0;
+    printk("helloworld bye!\n");
 }
 
 module_init(helloworld_init);
-module_exit(helloworld_exit)；
+module_exit(helloworld_exit);
 
-MODULE_LICENSE("GPL")
-MODULE_AUTHOR("YF")
-MODULE_VERSION("V1.0")
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("YF");
+MODULE_VERSION("V1.0");
