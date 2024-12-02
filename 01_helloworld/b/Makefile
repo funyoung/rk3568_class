@@ -1,4 +1,4 @@
-obj-m += helloworld.o
+obj-m += b.o
 KDIR=/home/rk3588/rk3568itop/rk3568_linux_5.10/kernel
 PWD?=$(shell pwd)
 all:

@@ -1,10 +1,14 @@
 #include <linux/module.h>
 #include <linux/init.h>
 
+/* copy Module.symvers with 'add' first, e.g., from project a/ */
+extern int add(int a, int b);
 
 static int helloworld_init(void)
 {
-    printk("helloworld!\n");
+    int a;
+    a = add(2, 3);
+    printk("a = %d\n", a);
     return 0;
 }
 
