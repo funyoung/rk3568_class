@@ -5,4 +5,4 @@ all:
 	make -C $(KDIR) M=$(PWD) modules
 	echo $(PWD)
 clean:
-	rm -f *.ko *.o *.mod.o *.mod.c *.symvers *.order
+	rm -f *.ko *.o *.mod.o *.mod.c *.symvers *.order .*.cmd .*.mod
