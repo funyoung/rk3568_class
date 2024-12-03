@@ -6,7 +6,7 @@ extern int add(int a, int b);
 
 static int helloworld_init(void)
 {
-    int a;
+    int a = 0;
     a = add(2, 3);
     printk("a = %d\n", a);
     return 0;
