@@ -16,7 +16,7 @@ MODULE_PARM_DESC(array,"e.g: array=1,2,3");
 module_param_string(str, str1, sizeof(str1), S_IRUGO);
 MODULE_PARM_DESC(str1,"e.g: str=hello");
 
-static int moduleparam_init(void)
+static int __init moduleparam_init(void)
 {
     int i = 0;
 
@@ -33,7 +33,7 @@ static int moduleparam_init(void)
     return 0;
 }
 
-static void moduleparam_exit(void)
+static void __exit moduleparam_exit(void)
 {
     printk("bye bye!\n");
 }

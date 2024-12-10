@@ -2,7 +2,7 @@
 #include <linux/init.h>
 
 
-static int helloworld_init(void)
+static int __init helloworld_init(void)
 {
 #ifndef DEBUG
     printk("helloworld branch a!\n");
@@ -13,7 +13,7 @@ static int helloworld_init(void)
     return 0;
 }
 
-static void helloworld_exit(void)
+static void __exit helloworld_exit(void)
 {
     printk("helloworld bye!\n");
 }

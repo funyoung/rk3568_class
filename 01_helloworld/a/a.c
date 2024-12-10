@@ -10,13 +10,13 @@ int add(int a, int b)
 }
 EXPORT_SYMBOL(add);
 
-static int helloworld_init(void)
+static int __init helloworld_init(void)
 {
     printk("helloworld!\n");
     return 0;
 }
 
-static void helloworld_exit(void)
+static void __exit helloworld_exit(void)
 {
     printk("helloworld bye!\n");
 }

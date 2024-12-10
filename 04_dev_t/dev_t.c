@@ -23,7 +23,7 @@ MODULE_PARM_DESC(minor,"e.g: minor=0");
 static dev_t dev_num;
 
 
-static int dev_t_init(void)
+static int __init dev_t_init(void)
 {
     int ret;
 
@@ -54,7 +54,7 @@ static int dev_t_init(void)
     return 0;
 }
 
-static void dev_t_exit(void)
+static void __exit dev_t_exit(void)
 {
     /* 释放字符驱动设备号 */
     unregister_chrdev_region(dev_num, 1); 

@@ -16,7 +16,7 @@ static int __init hello_init(void) /* 驱动入口函数 */
     return 0;
 }
 
-static void hello_exit(void) /* 驱动出口函数 */
+static void __exit hello_exit(void) /* 驱动出口函数 */
 {
     printk("Goodbye hello module\n");
 }

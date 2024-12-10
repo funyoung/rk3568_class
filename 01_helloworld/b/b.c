@@ -4,7 +4,7 @@
 /* copy Module.symvers with 'add' first, e.g., from project a/ */
 extern int add(int a, int b);
 
-static int helloworld_init(void)
+static int __init helloworld_init(void)
 {
     int a = 0;
     a = add(2, 3);
@@ -12,7 +12,7 @@ static int helloworld_init(void)
     return 0;
 }
 
-static void helloworld_exit(void)
+static void __exit helloworld_exit(void)
 {
     printk("helloworld bye!\n");
 }
