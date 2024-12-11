@@ -9,4 +9,11 @@
 #    User username
 #    IdentityFile ~/.ssh/id_rsa
 
-scp $@ 192.168.101.76:~/
+files=$@
+if [ $# -gt 0 ]; then
+    files=$@
+else
+    files="app *.ko"
+fi
+
+scp $files 192.168.101.76:~/
