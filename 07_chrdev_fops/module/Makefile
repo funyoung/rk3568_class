@@ -1,4 +1,4 @@
-### build driver module with '../mkmod3568.sh'
+### build driver module with '../../mkmod3568.sh'
 
 obj-m += chrdev_fops.o
 
