@@ -61,7 +61,8 @@ static int cdev_test_open(struct inode *inode, struct file *file)
 static int cdev_test_release(struct inode *inode, struct file *file)
 {
     /* why call this again. */
-    file->private_data = &dev1;
+    /* file->private_data = &dev1; */
+    printk("This is cdev_test_realse \n");
     return 0;
 }
 
