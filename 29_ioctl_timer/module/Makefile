@@ -1,6 +1,6 @@
 ### build driver module with '../../mkmod3568.sh'
 
-obj-m += ioctl.o
+obj-m += ioctl_timer.o
 
 PWD?=$(shell pwd)
 
