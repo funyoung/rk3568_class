@@ -10,7 +10,7 @@ static irqreturn_t gpio_irq_handler(int irq, void *dev_id)
 {
     printk(KERN_INFO "Interrupt occurs: %d\n", irq);
     printk(KERN_INFO "this is interrupt handler.\n");
-    return IRQ_HANDLED;
+    return IRQ_RETVAL(IRQ_HANDLED);
 }
 
 /* 引脚映射成中断号，请求中断 */
