@@ -2,7 +2,7 @@
 #include <linux/init.h>
 #include <linux/gpio.h>
 #include <linux/interrupt.h>
-/*#include <linux/delay.h>*/
+/* #include <linux/delay.h> */
 
 /* GPIO3_A5: 3*32 + 0 * 8 + 5 = 101 */
 #define GPIO_PIN 101
@@ -15,7 +15,7 @@ void mytasklet_func(unsigned long data)
 {
     printk(KERN_INFO "tasklet data is %ld\n", data);
     /* tasklet处理函数不能阻塞 */
-    /* msleetp(3000); */
+    /* msleep(3000); */
 }
 
 
