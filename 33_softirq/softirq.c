@@ -13,7 +13,7 @@ static int irq;
 void testsoft_func(struct softirq_action *softirq_action)
 {
     printk(KERN_INFO "this is testsoft_func\n");
-    /* msleetp(3000); */
+    /*msleep(3000);*/
 }
 
 
