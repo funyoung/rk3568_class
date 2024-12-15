@@ -34,7 +34,7 @@ static struct platform_device my_platform_device = {
     .dev.release = my_platform_device_relese,
 };
 
-static int __init dev_t_init(void)
+static int __init platform_device_init(void)
 {
     int ret;
 
@@ -49,15 +49,15 @@ static int __init dev_t_init(void)
     return 0;
 }
 
-static void __exit dev_t_exit(void)
+static void __exit platform_device_exit(void)
 {
     /* 注销平台设备 */
     platform_device_unregister(&my_platform_device); 
     printk(KERN_INFO "platform device unregistered\n");
 }
 
-module_init(dev_t_init);
-module_exit(dev_t_exit);
+module_init(platform_device_init);
+module_exit(platform_device_exit);
 
 MODULE_LICENSE("GPL v2");
 MODULE_AUTHOR("YF");
