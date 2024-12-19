@@ -33,22 +33,34 @@ static void dynamic_kobj_release(struct kobject *kobj)
 ssize_t show_myvalue1(struct kobject *kobj, struct kobj_attribute *attr, char *buf)
 {
     ssize_t count;
-    count = sprintf(buf, "show_myvalue1\n");
+    count = sprintf(buf, "%d\n", mykobject01->value1);
     return count;
 }
 ssize_t store_myvalue1(struct kobject *kobj, struct kobj_attribute *attr, const char *buf, size_t count)
 {
+    int ret;
+    ret = sscanf(buf, "%d", &mykobject01->value1);
+    if (ret != 1) {
+        return -EINVAL;
+    }
+
     printk("buf is %s\n", buf);
     return count;
 }
 ssize_t show_myvalue2(struct kobject *kobj, struct kobj_attribute *attr, char *buf)
 {
     ssize_t count;
-    count = sprintf(buf, "show_myvalue2\n");
+    count = sprintf(buf, "%d\n", mykobject01->value2);
     return count;
 }
 ssize_t store_myvalue2(struct kobject *kobj, struct kobj_attribute *attr, const char *buf, size_t count)
 {
+    int ret;
+    ret = sscanf(buf, "%d", &mykobject01->value2);
+    if (ret != 1) {
+        return -EINVAL;
+    }
+
     printk("buf is %s\n", buf);
     return count;
 }

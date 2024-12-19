@@ -5,29 +5,43 @@
 #include <linux/kernel.h>
 #include <linux/kobject.h>
 
-/* 定义kobject指针变量*/
+/* 定义kobject指针变量和两个内核属性值*/
 struct kobject *mykobject01;
+static int myvalue1 = 1;
+static int myvalue2 = 2;
 
 ssize_t show_myvalue1(struct kobject *kobj, struct kobj_attribute *attr, char *buf)
 {
     ssize_t count;
-    count = sprintf(buf, "show_myvalue1\n");
+    count = sprintf(buf, "%d\n", myvalue1);
     return count;
 }
 ssize_t store_myvalue1(struct kobject *kobj, struct kobj_attribute *attr, const char *buf, size_t count)
 {
-    count = printk("buf is %s\n", buf);
+    int ret;
+    ret = sscanf(buf, "%d", &myvalue1);
+    if (ret != 1) {
+        return -EINVAL;
+    }
+
+    printk("buf is %s\n", buf);
     return count;
 }
 ssize_t show_myvalue2(struct kobject *kobj, struct kobj_attribute *attr, char *buf)
 {
     ssize_t count;
-    count = sprintf(buf, "show_myvalue2\n");
+    count = sprintf(buf, "%d\n", myvalue2);
     return count;
 }
 ssize_t store_myvalue2(struct kobject *kobj, struct kobj_attribute *attr, const char *buf, size_t count)
 {
-    count = printk("buf is %s\n", buf);
+    int ret;
+    ret = sscanf(buf, "%d", &myvalue2);
+    if (ret != 1) {
+        return -EINVAL;
+    }
+
+    printk("buf is %s\n", buf);
     return count;
 }
 struct kobj_attribute value1 = __ATTR(value1, 0664, show_myvalue1, store_myvalue1);
